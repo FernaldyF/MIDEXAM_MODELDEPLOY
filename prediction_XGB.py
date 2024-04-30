@@ -16,7 +16,7 @@ def main():
     age = st.number_input('Age',18,100)
     gender = st.radio("Gender", ["Male", "Female"])
     tenure = st.number_input('Tenure',0,10)
-    Balance = st.number_input('Balance',0,250000)
+    Balance = st.number_input('Balance',0.0,250000.0)
     NumOfProducts = st.number_input('Number of Products',0,5)
     HasCrCard = st.checkbox('Has Credit Card')
     IsActiveMember = st.checkbox('Is Active Member')
