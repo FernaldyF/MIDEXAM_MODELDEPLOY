@@ -11,7 +11,7 @@ Model = joblib.load('XGBOOST.pkl')
 def main():
     st.title('Churn Model Deployment')
 
-    creditscore = st.number_input('CreditScore',0,900)
+    creditscore = st.number_input('CreditScore',0.0,900.0)
     geography = st.radio('Geography', ['France', 'Germany', 'Spain'])
     age = st.number_input('Age',1,100)
     gender = st.radio("Gender", ["Male", "Female"])
