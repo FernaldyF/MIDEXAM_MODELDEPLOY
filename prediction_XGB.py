@@ -22,8 +22,8 @@ def main():
     IsActiveMember = st.checkbox('Is Active Member')
     EstimatedSalary = st.number_input('Estimated Salary', 0,220000)
 
-    data = {'CreditScore': int(creditscore),'Geography': geography,'Age': int(age),'Gender': gender,'Tenure': int(tenure),'Balance': int(Balance),
-            'NumOfProducts': int(NumOfProducts),'HasCrCard': int(HasCrCard),'IsActiveMember': int(IsActiveMember),'EstimatedSalary': int(EstimatedSalary)}
+    data = {'CreditScore': creditscore,'Geography': geography,'Age': int(age),'Gender': gender,'Tenure': int(tenure),'Balance': int(Balance),
+            'NumOfProducts': int(NumOfProducts),'HasCrCard': int(HasCrCard),'IsActiveMember': int(IsActiveMember),'EstimatedSalary': EstimatedSalary}
 
     df=pd.DataFrame([list(data.values())],columns=['CreditScore','Geography','Age','Gender','Tenure','Balance',
             'NumOfProducts','HasCrCard','IsActiveMember','EstimatedSalary'])
