@@ -43,11 +43,13 @@ def main():
       st.success(f'The Prediction is: {result}')
         
 def make_prediction(features):
-    input_arr = np.array(features).reshape(1,-1)
-    prediction = Model.predict(input_arr)[0]
+    input_arr = np.array(features).reshape(1, -1)
+    prediction = Model.predict(input_arr)
+    if len(prediction) == 1:
+        prediction = prediction[0]
     if prediction == 1:
-      st.write("Predicted: **Churn**")
+        return "Churn"
     else:
-      st.write("Predicted: **Not Churn**")
+        return "Not Churn"
 if __name__ == '__main__':
     main()
