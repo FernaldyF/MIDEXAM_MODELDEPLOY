@@ -1,13 +1,3 @@
-import streamlit as st
-import joblib
-import numpy as np
-import pandas as pd
-import pickle as pkl
-
-gender_encode = joblib.load('OneHot_Gender.pkl')
-one_hot = joblib.load('OneHot_Geo.pkl')
-Model = joblib.load('XGBOOST.pkl')
-
 def main():
     st.title('Churn Model Deployment')
 
@@ -44,8 +34,10 @@ def main():
 
 def make_prediction(features):
     input_arr = np.array(features).reshape(1,-1)
-    prediction = Model.predict(input_arr)
-    return prediction[0]
-
-if __name__ == "__main__":
+    prediction = Model.predict(input_arr)[0]
+    if prediction == 1:
+      st.write("Predicted: **Churn**")
+    else:
+      st.write("Predicted: **Not Churn**")
+if __name__ == '__main__':
     main()
