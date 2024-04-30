@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import pickle as pkl
 
+
 def main():
     st.title('Churn Model Deployment')
 
@@ -37,7 +38,7 @@ def main():
       features=df
       result=make_prediction(features)
       st.success(f'The Prediction is: {result}')
-
+        
 def make_prediction(features):
     input_arr = np.array(features).reshape(1,-1)
     prediction = Model.predict(input_arr)[0]
