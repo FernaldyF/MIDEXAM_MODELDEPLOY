@@ -3,7 +3,6 @@ import joblib
 import numpy as np
 import pandas as pd
 import pickle as pkl
-from sklearn.preprocessing import OneHotEncoder
 
 gender_encode = joblib.load('OneHot_Gender.pkl')
 one_hot = joblib.load('OneHot_Geo.pkl')
@@ -32,8 +31,8 @@ def main():
     Gen = df[['Gender']]
     Geo = df[['Geography']]
 
-    GENDER = pd.DataFrame(gender_encode.transform(Gen).toarray(),columns=gender_encode.get_feature_names_out(input_features=['Gender']))
-    GEO = pd.DataFrame(one_hot.transform(Geo).toarray(),columns=one_hot.get_feature_names_out(input_features=['Geography']))
+    GENDER = pd.DataFrame(gender_encode.transform(Gen).toarray(),columns=gender_encode.get_feature_names_out())
+    GEO = pd.DataFrame(one_hot.transform(Geo).toarray(),columns=one_hot.get_feature_names_out())
 
     df = pd.concat([df,GENDER,GEO], axis=1)
     df = df.drop(['Gender','Geography'], axis=1)
