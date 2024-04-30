@@ -4,6 +4,9 @@ import numpy as np
 import pandas as pd
 import pickle as pkl
 
+gender_encode = joblib.load('OneHot_Gender.pkl')
+one_hot = joblib.load('OneHot_Geo.pkl')
+Model = joblib.load('XGBOOST.pkl')
 
 def main():
     st.title('Churn Model Deployment')
