@@ -45,6 +45,9 @@ def main():
 def make_prediction(features):
     input_arr = np.array(features).reshape(1, -1)
     prediction = Model.predict(input_arr)
-    return prediction[0]
+    if prediction == 1:
+        return "Churn"
+    else:
+        return "Not Churn"
 if __name__ == '__main__':
     main()
